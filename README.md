@@ -1,5 +1,7 @@
 # SolareX - Solar Resource eXchange
 
+[![Tests](https://github.com/msotocalvo/solarex/actions/workflows/tests.yml/badge.svg)](https://github.com/msotocalvo/solarex/actions/workflows/tests.yml)
+
 A Python library for solar PV resource assessment, irradiance analysis,
 temperature modeling, shading/bifacial analysis, MCDA site scoring, and
 capacity factor computation.
