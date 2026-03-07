@@ -1,0 +1,104 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "solarex"
+version = "0.1.0"
+description = "SolareX - Solar Resource eXchange: solar PV resource assessment, MCDA, and site analysis"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "SolareX Development Team"},
+]
+keywords = [
+    "solar energy",
+    "solar PV",
+    "renewable energy",
+    "irradiance",
+    "capacity factor",
+    "MCDA",
+    "bifacial",
+    "shading",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+dependencies = [
+    "numpy>=1.22",
+    "scipy>=1.8",
+    "requests>=2.28",
+]
+
+[project.optional-dependencies]
+era5 = [
+    "atlite>=0.2.10",
+    "xarray>=0.19",
+    "dask>=2022.1",
+]
+pvlib = ["pvlib>=0.10"]
+viz = ["matplotlib>=3.4"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1",
+    "build>=1.0",
+    "twine>=4.0",
+]
+all = [
+    "atlite>=0.2.10",
+    "xarray>=0.19",
+    "dask>=2022.1",
+    "pvlib>=0.10",
+    "matplotlib>=3.4",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/solarex-dev/solarex"
+Repository = "https://github.com/solarex-dev/solarex"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["solarex*"]
+exclude = ["tests*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+]
+markers = [
+    "slow: marks tests as slow",
+    "integration: marks tests as integration tests",
+    "requires_atlite: marks tests that require atlite",
+    "requires_pvlib: marks tests that require pvlib",
+]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP"]
+ignore = ["E501", "B008", "C901"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["B011"]
