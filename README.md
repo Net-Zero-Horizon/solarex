@@ -1,6 +1,7 @@
 # SolareX - Solar Resource eXchange
 
 [![Tests](https://github.com/msotocalvo/solarex/actions/workflows/tests.yml/badge.svg)](https://github.com/msotocalvo/solarex/actions/workflows/tests.yml)
+[![DOI](https://zenodo.org/badge/1175040710.svg)](https://doi.org/10.5281/zenodo.18898422)
 
 A Python library for solar PV resource assessment, irradiance analysis,
 temperature modeling, shading/bifacial analysis, MCDA site scoring, and
